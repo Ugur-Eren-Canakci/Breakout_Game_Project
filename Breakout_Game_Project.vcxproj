@@ -136,15 +136,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="background.cpp" />
+    <ClCompile Include="ball.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="background.h" />
+    <ClInclude Include="ball.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="entity.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="background_image.jpg" />
+    <Image Include="ball_image.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

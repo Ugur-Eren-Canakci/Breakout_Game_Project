@@ -7,6 +7,7 @@
 #include "constants.h"
 #include "entity.h"
 #include "background.h"
+#include "ball.h"
 
 using namespace std::literals;
 
@@ -58,12 +59,16 @@ int main() {
     // background image
     background background_image(0.0f, 0.0f);
 
+    // the ball
+    ball the_ball(constants::window_width / 2.0, constants::window_height / 2.0);
+
+    /* the random walk
     // create a creature object in the middle of the window
     creature the_creature(
         constants::window_width / 2.0, 
         constants::window_height / 2.0 
     );
-
+    */
     sf::RenderWindow game_window(
         sf::VideoMode({ constants::window_width, 
                         constants::window_height 
@@ -88,13 +93,19 @@ int main() {
             }
         }
 
+        // update the images
+        background_image.update();
+        the_ball.update();
+
         // calculate the next frame to show
         background_image.draw(game_window);
+        the_ball.draw(game_window);
 
+        /*
         // random walking creature
         the_creature.update();
         the_creature.draw(game_window);
-
+        */
 
 
         // display the next frame

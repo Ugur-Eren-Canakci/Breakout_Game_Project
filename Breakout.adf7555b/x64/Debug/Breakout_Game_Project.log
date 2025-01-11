@@ -1,1 +1,9 @@
-﻿  Breakout_Game_Project.vcxproj -> C:\Users\ugur_\Desktop\VS Code\Breakout_Game_Solution\Breakout_Game_Project\x64\Debug\Breakout_Game_Project.exe
+﻿  main.cpp
+C:\SFML-3.0.0\include\SFML\System\Exception.hpp(41,47): warning C4275: non dll-interface class 'std::runtime_error' used as base for dll-interface class 'sf::Exception'
+  (compiling source file 'main.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\stdexcept(100,19):
+      see declaration of 'std::runtime_error'
+      C:\SFML-3.0.0\include\SFML\System\Exception.hpp(41,23):
+      see declaration of 'sf::Exception'
+  
+  Breakout_Game_Project.vcxproj -> C:\Users\ugur_\Desktop\VS Code\Breakout_Game_Solution\Breakout_Game_Project\x64\Debug\Breakout_Game_Project.exe

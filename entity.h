@@ -19,6 +19,14 @@ public:
 
 
 };
+
+class moving_entity : public entity {
+protected:
+	sf::Vector2f velocity;
+public:
+	// pure virtual functions will be inherited from entity
+	// so that classes that derive moving_entity will have to define them
+};
 #endif // ENTITY_H
 
 
