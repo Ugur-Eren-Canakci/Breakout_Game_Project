@@ -4,9 +4,6 @@
 
 
 class ball : public moving_entity {
-private:
-	static sf::Texture texture;
-	static sf::Sprite sprite;
 public:
 	// Interface of the class
 
@@ -17,6 +14,10 @@ public:
 	// x increases to the right
 	// y increases downwards
 	ball(float x, float y);
+
+	void move_up() noexcept override;
+	void move_left() noexcept override;
+	void move_right() noexcept override;
 
 	void update() override;
 	void draw(sf::RenderWindow& window) override;

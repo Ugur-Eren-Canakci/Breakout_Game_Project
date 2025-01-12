@@ -9,6 +9,8 @@
 #include "entity.h"
 #include "background.h"
 #include "ball.h"
+#include "paddle.h"
+#include "interactions.h"
 
 using namespace std::literals;
 
@@ -64,6 +66,12 @@ int main() {
     // the ball
     ball the_ball(constants::window_width / 2.0, constants::window_height / 2.0);
 
+    // the paddle
+    paddle the_paddle{
+        (float)constants::window_width/2 - constants::paddle_width/2, 
+        (float)constants::window_height - constants::paddle_height - 5.0f
+    };
+
     /* the random walk
     // create a creature object in the middle of the window
     creature the_creature(
@@ -75,7 +83,7 @@ int main() {
         sf::VideoMode({ constants::window_width, 
                         constants::window_height 
         }),
-        "Random Walk"s
+        "Breakout_Basic"s
     );
 
     game_window.setFramerateLimit(60);
@@ -83,25 +91,32 @@ int main() {
     while (game_window.isOpen()) {
         game_window.clear(sf::Color::Black);
 
-        auto event = game_window.pollEvent();
+        // closing the game
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+            game_window.close();
 
-        while (const std::optional event = game_window.pollEvent()) {
-            // Window closed or escape key pressed: exit
-            if (event->is<sf::Event::Closed>() ||
-                (event->is<sf::Event::KeyPressed>() &&
-                    event->getIf<sf::Event::KeyPressed>()->code == sf::Keyboard::Key::Escape)) 
-            {
+        while (auto event = game_window.pollEvent()) {
+            if (event->is<sf::Event::Closed>()) {
                 game_window.close();
             }
+            else if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+                if (keyPressed->scancode == sf::Keyboard::Scancode::Escape)
+                    game_window.close();
+            }
         }
+
+        // handle collisions
+        handle_interaction(the_ball, the_paddle);
 
         // update the images
         background_image.update();
         the_ball.update();
+        the_paddle.update();
 
         // calculate the next frame to show
         background_image.draw(game_window);
         the_ball.draw(game_window);
+        the_paddle.draw(game_window);
 
         /*
         // random walking creature

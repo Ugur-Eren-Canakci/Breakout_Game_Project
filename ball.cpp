@@ -1,14 +1,29 @@
 #include "ball.h"
 #include "constants.h"
+#include "paddle.h"
 #include <iostream>
 
 // Initialize the static data
-sf::Texture ball::texture("ball.png");
-sf::Sprite ball::sprite(texture);
+
 
 ball::ball(float x, float y) : moving_entity() {
+	texture = sf::Texture{ "ball.png" };
+	sprite = sf::Sprite{ texture };
+	
 	sprite.setPosition({ x,y });
 	velocity = { constants::ball_speed, constants::ball_speed };
+}
+
+void ball::move_up() noexcept {
+	velocity.y = -constants::ball_speed;
+}
+
+void ball::move_left() noexcept {
+	velocity.x = -constants::ball_speed;
+}
+
+void ball::move_right() noexcept {
+	velocity.x = constants::ball_speed;
 }
 
 // Compute the ball's new position
@@ -16,24 +31,22 @@ void ball::update() {
 	// Move the position of the ball
 	sprite.move(velocity);
 
-	// check current position
-	float x_pos = sprite.getPosition().x;
-	float y_pos = sprite.getPosition().y;
-	
 	// window borders check
-	if (x_pos < 0) {
+	if (x() < 0) {
 		velocity.x = -velocity.x;
 	}
 
-	if (x_pos > constants::window_width) {
+	if (x() > constants::window_width) {
 		velocity.x = -velocity.x;
 	}
 
-	if (y_pos < 0) {
+	if (y() < 0) {
 		velocity.y = -velocity.y;
 	}
 
-	if (y_pos > constants::window_height) {
+	if (y() > constants::window_height) {
+		// currently the ball reflects from the bottom of the window
+		// will end the turn in the future
 		velocity.y = -velocity.y;
 	}
 	

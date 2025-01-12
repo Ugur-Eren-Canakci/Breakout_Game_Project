@@ -14,3 +14,10 @@ sf::Vector2f entity::get_centre() const noexcept {
 	sf::Vector2f res = { x_pos, y_pos};
 	return res;
 }
+float entity::x() const noexcept {
+	return sprite.getPosition().x;
+}
+
+float entity::y() const noexcept {
+	return sprite.getPosition().y;
+}

@@ -25,7 +25,10 @@ public:
 
 	// Helper function to get the centre of a sprite
 	sf::Vector2f get_centre() const noexcept;
-
+	
+	// Helper function to get x and y positions
+	float x() const noexcept;
+	float y() const noexcept;
 };
 
 class moving_entity : public entity {
@@ -34,6 +37,10 @@ protected:
 public:
 	// pure virtual functions will be inherited from entity
 	// so that classes that derive moving_entity will have to define them
+
+	virtual void move_up() noexcept = 0;
+	virtual void move_left() noexcept = 0;
+	virtual void move_right() noexcept = 0;
 };
 #endif // ENTITY_H
 
