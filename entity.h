@@ -6,7 +6,13 @@
 #include <SFML/Graphics.hpp>
 
 class entity { // abstract base class
+protected:
+	sf::Texture texture;
+	sf::Sprite sprite = sf::Sprite(texture);
 public:
+	// virtual destroyer
+	virtual ~entity() {}
+
 	// pure virtual functions here
 	// concrete graphical entities must implement these functions
 	// the update member function will compute the new position, appearance, etc.
@@ -14,9 +20,11 @@ public:
 	virtual void update() = 0;
 	virtual void draw(sf::RenderWindow& window) = 0;
 
-	// virtual destroyer
-	virtual ~entity() {}
+	// Helper function to get the bounding box of a sprite
+	sf::FloatRect get_bounding_box() const noexcept;
 
+	// Helper function to get the centre of a sprite
+	sf::Vector2f get_centre() const noexcept;
 
 };
 

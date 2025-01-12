@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="background.cpp" />
     <ClCompile Include="ball.cpp" />
+    <ClCompile Include="entity.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -147,7 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="background_image.jpg" />
-    <Image Include="ball_image.png" />
+    <Image Include="ball.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,9 +9,6 @@
 // class to represent background 
 // inherits from entity
 class background : public entity {
-private:
-	static sf::Texture texture;
-	static sf::Sprite sprite;
 public:
 	// Interface of the class
 	

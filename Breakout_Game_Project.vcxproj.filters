@@ -24,6 +24,9 @@
     <ClCompile Include="ball.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="entity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="background.h">
@@ -43,7 +46,7 @@
     <Image Include="background_image.jpg">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="ball_image.png">
+    <Image Include="ball.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

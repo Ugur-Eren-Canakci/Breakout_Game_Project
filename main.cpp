@@ -1,6 +1,7 @@
 // Code for a "breakout" game
 // Based on a talk by Vittorio Romeo
 // Uses the SFML graphics library
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <random>
 #include <string>
@@ -55,7 +56,8 @@ std::bernoulli_distribution creature::bd;
 
 // The main function for the program
 int main() {
-    
+    std::cout << "Window width: " << constants::window_width << "\nWindow height: " << constants::window_height << std::endl;
+
     // background image
     background background_image(0.0f, 0.0f);
 
