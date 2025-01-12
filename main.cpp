@@ -5,12 +5,15 @@
 #include <SFML/Graphics.hpp>
 #include <random>
 #include <string>
+#include <vector>
 #include "constants.h"
 #include "entity.h"
 #include "background.h"
 #include "ball.h"
 #include "paddle.h"
 #include "interactions.h"
+#include "brick.h"
+#include "brick_placements.h"
 
 using namespace std::literals;
 
@@ -72,6 +75,10 @@ int main() {
         (float)constants::window_height - constants::paddle_height - 5.0f
     };
 
+    // the bricks
+    std::vector<brick> bricks(constants::brick_columns * constants::brick_rows);
+    place_bricks(bricks);
+
     /* the random walk
     // create a creature object in the middle of the window
     creature the_creature(
@@ -107,16 +114,24 @@ int main() {
 
         // handle collisions
         handle_interaction(the_ball, the_paddle);
+        // handle_interaction(the_ball, bricks); overload TBA
 
         // update the images
         background_image.update();
         the_ball.update();
         the_paddle.update();
+        for (brick& el : bricks) {
+            el.update();
+        }
 
         // calculate the next frame to show
         background_image.draw(game_window);
         the_ball.draw(game_window);
         the_paddle.draw(game_window);
+        for (brick& el : bricks) {
+            std::cout << "brick coordinate: (" << el.x() << "," << el.y() << ")\n";
+            el.draw(game_window);
+        }
 
         /*
         // random walking creature

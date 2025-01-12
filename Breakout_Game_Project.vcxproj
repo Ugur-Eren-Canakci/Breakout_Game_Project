@@ -137,6 +137,8 @@
   <ItemGroup>
     <ClCompile Include="background.cpp" />
     <ClCompile Include="ball.cpp" />
+    <ClCompile Include="brick.cpp" />
+    <ClCompile Include="brick_placements.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="interactions.cpp" />
     <ClCompile Include="main.cpp" />
@@ -145,6 +147,8 @@
   <ItemGroup>
     <ClInclude Include="background.h" />
     <ClInclude Include="ball.h" />
+    <ClInclude Include="brick.h" />
+    <ClInclude Include="brick_placements.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="interactions.h" />
@@ -153,6 +157,7 @@
   <ItemGroup>
     <Image Include="background_image.jpg" />
     <Image Include="ball.png" />
+    <Image Include="brick01.png" />
     <Image Include="paddle.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

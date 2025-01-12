@@ -33,6 +33,12 @@
     <ClCompile Include="interactions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="brick.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="brick_placements.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="background.h">
@@ -53,6 +59,12 @@
     <ClInclude Include="interactions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="brick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="brick_placements.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="background_image.jpg">
@@ -62,6 +74,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="paddle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="brick01.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
