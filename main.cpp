@@ -6,6 +6,7 @@
 #include <random>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include "constants.h"
 #include "entity.h"
 #include "background.h"
@@ -90,13 +91,13 @@ int main() {
         sf::VideoMode({ constants::window_width, 
                         constants::window_height 
         }),
-        "Breakout_Basic"s
+        "Breakout_Not_A_Game_Yet"s
     );
 
     game_window.setFramerateLimit(60);
     
     while (game_window.isOpen()) {
-        game_window.clear(sf::Color::Black);
+        game_window.clear(sf::Color::White);
 
         // closing the game
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
@@ -114,7 +115,13 @@ int main() {
 
         // handle collisions
         handle_interaction(the_ball, the_paddle);
-        // handle_interaction(the_ball, bricks); overload TBA
+        
+        for (brick& brick : bricks) {
+            handle_interaction(the_ball, brick);
+        }
+        bricks.erase(std::remove_if(std::begin(bricks), std::end(bricks), 
+            [](const brick& b) { return b.is_destroyed();}), 
+            std::end(bricks));
 
         // update the images
         background_image.update();
@@ -129,7 +136,6 @@ int main() {
         the_ball.draw(game_window);
         the_paddle.draw(game_window);
         for (brick& el : bricks) {
-            std::cout << "brick coordinate: (" << el.x() << "," << el.y() << ")\n";
             el.draw(game_window);
         }
 

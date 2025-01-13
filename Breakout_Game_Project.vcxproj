@@ -155,7 +155,7 @@
     <ClInclude Include="paddle.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="background_image.jpg" />
+    <Image Include="background_image.png" />
     <Image Include="ball.png" />
     <Image Include="brick01.png" />
     <Image Include="paddle.png" />

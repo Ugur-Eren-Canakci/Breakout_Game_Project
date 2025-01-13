@@ -1,10 +1,9 @@
 #include "paddle.h"
-
+#include <iostream>
 using namespace std::literals;
 
 paddle::paddle(float x, float y) : moving_entity() {
-
-	texture = sf::Texture("paddle.png");
+	texture.loadFromFile("paddle.png", true);
 	sprite = sf::Sprite(texture);
 	sprite.setPosition({ x,y });
 	velocity = { 0.0f, 0.0f };
@@ -52,3 +51,4 @@ void paddle::draw(sf::RenderWindow& window) {
 void paddle::move_up() noexcept {}
 void paddle::move_left() noexcept {}
 void paddle::move_right() noexcept {}
+void paddle::move_down() noexcept {}

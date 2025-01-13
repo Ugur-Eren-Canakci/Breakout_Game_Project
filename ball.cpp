@@ -3,11 +3,9 @@
 #include "paddle.h"
 #include <iostream>
 
-// Initialize the static data
-
 
 ball::ball(float x, float y) : moving_entity() {
-	texture = sf::Texture{ "ball.png" };
+	texture.loadFromFile("ball.png", true);
 	sprite = sf::Sprite{ texture };
 	
 	sprite.setPosition({ x,y });
@@ -24,6 +22,10 @@ void ball::move_left() noexcept {
 
 void ball::move_right() noexcept {
 	velocity.x = constants::ball_speed;
+}
+
+void ball::move_down() noexcept {
+	velocity.y = constants::ball_speed;
 }
 
 // Compute the ball's new position

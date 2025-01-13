@@ -67,9 +67,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="background_image.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="ball.png">
       <Filter>Resource Files</Filter>
     </Image>
@@ -77,6 +74,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="brick01.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="background_image.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

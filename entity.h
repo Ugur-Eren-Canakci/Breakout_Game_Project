@@ -4,11 +4,13 @@
 #define ENTITY_H
 
 #include <SFML/Graphics.hpp>
+#include <string>
 
-class entity { // abstract base class
+class entity { // abstract base class	
 protected:
-	sf::Texture texture;
+	static sf::Texture texture;
 	sf::Sprite sprite = sf::Sprite(texture);
+	bool destroyed{ false };
 public:
 	// virtual destroyer
 	virtual ~entity() {}
@@ -29,6 +31,17 @@ public:
 	// Helper function to get x and y positions
 	float x() const noexcept;
 	float y() const noexcept;
+
+	// Helper functions to get the edges of the sprite
+	float left() const noexcept;
+	float right() const noexcept;
+	float top() const noexcept;
+	float bottom() const noexcept;
+
+	// Helper functions for the state of the entity
+	void destroy() noexcept;
+	bool is_destroyed() const noexcept;
+
 };
 
 class moving_entity : public entity {
@@ -41,6 +54,7 @@ public:
 	virtual void move_up() noexcept = 0;
 	virtual void move_left() noexcept = 0;
 	virtual void move_right() noexcept = 0;
+	virtual void move_down() noexcept = 0;
 };
 #endif // ENTITY_H
 
