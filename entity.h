@@ -8,9 +8,9 @@
 
 class entity { // abstract base class	
 protected:
-	static sf::Texture texture;
-	sf::Sprite sprite = sf::Sprite(texture);
 	bool destroyed{ false };
+	static sf::Texture texture;
+	sf::Sprite sprite{ texture };
 public:
 	// virtual destroyer
 	virtual ~entity() {}

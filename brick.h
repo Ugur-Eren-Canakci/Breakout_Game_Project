@@ -1,11 +1,10 @@
 #pragma once
 #include "entity.h"
-
-
+#include "constants.h"
 
 class brick : public entity {
 private:
-	int life = 1;
+	int strength = constants::brick_strength;
 public:
 	// default constructor
 	brick(); 
@@ -20,5 +19,10 @@ public:
 
 	// drawing on a particular window
 	void draw(sf::RenderWindow& window) override;
+
+	// strength functions
+	void set_strength(int s) noexcept;
+	void weaken() noexcept;
+	bool is_too_weak() const noexcept;
 };
 

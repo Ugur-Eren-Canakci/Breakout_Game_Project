@@ -2,9 +2,7 @@
 #include "constants.h"
 #include <iostream>
 
-// initialize static member
 sf::Texture entity::texture;
-
 
 sf::FloatRect entity::get_bounding_box() const noexcept {
 	return sprite.getGlobalBounds();

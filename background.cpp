@@ -1,6 +1,5 @@
 #include "background.h"
 
-
 background::background(float x, float y) : entity() {
 	// Load the texture
 	texture.loadFromFile("background_image.png", true);

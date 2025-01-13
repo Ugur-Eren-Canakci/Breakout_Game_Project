@@ -23,11 +23,16 @@ using entity_alias_vector = std::vector<entity*>;
 
 class entity_manager {
 private:
+    
     entity_vector all_entities;
     std::map<size_t, entity_alias_vector> grouped_entities;
+
+
 public:
+
     template <typename T, typename... Args>
     T& create(Args&&... args) {
+        
         // assert type in compile-time to be of entity
         static_assert(std::is_base_of<entity, T>::value,
             R"("T" type parameter in create() must be derived from "entity")");

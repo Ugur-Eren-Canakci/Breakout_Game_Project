@@ -18,8 +18,9 @@ void handle_interaction(ball& ball, const paddle& paddle) {
 
 void handle_interaction(ball& ball, brick& brick) {
 	if (is_interacting(ball, brick)) {
+        brick.weaken();
         // The brick is destroyed
-        brick.destroy();
+        if (brick.is_too_weak()) brick.destroy();
 
         // Make the new direction depend on where the collision occurs on the brick
         // If the ball collides on the side of the brick, make the ball bounce to the left/right

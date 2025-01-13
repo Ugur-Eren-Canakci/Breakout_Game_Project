@@ -3,7 +3,6 @@
 #include "paddle.h"
 #include <iostream>
 
-
 ball::ball(float x, float y) : moving_entity() {
 	texture.loadFromFile("ball.png", true);
 	sprite = sf::Sprite{ texture };
