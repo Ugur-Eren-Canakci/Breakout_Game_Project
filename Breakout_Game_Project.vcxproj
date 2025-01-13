@@ -140,6 +140,7 @@
     <ClCompile Include="brick.cpp" />
     <ClCompile Include="brick_placements.cpp" />
     <ClCompile Include="entity.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="interactions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="paddle.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="brick_placements.h" />
     <ClInclude Include="constants.h" />
     <ClInclude Include="entity.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="interactions.h" />
     <ClInclude Include="paddle.h" />
   </ItemGroup>
@@ -159,6 +161,9 @@
     <Image Include="ball.png" />
     <Image Include="brick01.png" />
     <Image Include="paddle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="dummy.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

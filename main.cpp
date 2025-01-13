@@ -3,7 +3,7 @@
 // Uses the SFML graphics library
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include <random>
+//#include <random>
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -15,9 +15,10 @@
 #include "interactions.h"
 #include "brick.h"
 #include "brick_placements.h"
+#include "game.h"
 
 using namespace std::literals;
-
+/*
 class creature {
 private:
     // static RNG engine and Bernoulli distribution objects
@@ -59,97 +60,13 @@ public:
 
 std::mt19937 creature::mt;
 std::bernoulli_distribution creature::bd;
-
+*/// random walk class and objects
 // The main function for the program
 int main() {
     std::cout << "Window width: " << constants::window_width << "\nWindow height: " << constants::window_height << std::endl;
 
-    // background image
-    background background_image(0.0f, 0.0f);
-
-    // the ball
-    ball the_ball(constants::window_width / 2.0, constants::window_height / 2.0);
-
-    // the paddle
-    paddle the_paddle{
-        (float)constants::window_width/2 - constants::paddle_width/2, 
-        (float)constants::window_height - constants::paddle_height - 5.0f
-    };
-
-    // the bricks
-    std::vector<brick> bricks(constants::brick_columns * constants::brick_rows);
-    place_bricks(bricks);
-
-    /* the random walk
-    // create a creature object in the middle of the window
-    creature the_creature(
-        constants::window_width / 2.0, 
-        constants::window_height / 2.0 
-    );
-    */
-    sf::RenderWindow game_window(
-        sf::VideoMode({ constants::window_width, 
-                        constants::window_height 
-        }),
-        "Breakout_Not_A_Game_Yet"s
-    );
-
-    game_window.setFramerateLimit(60);
+    game game;
+    game.run();
     
-    while (game_window.isOpen()) {
-        game_window.clear(sf::Color::White);
-
-        // closing the game
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
-            game_window.close();
-
-        while (auto event = game_window.pollEvent()) {
-            if (event->is<sf::Event::Closed>()) {
-                game_window.close();
-            }
-            else if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
-                if (keyPressed->scancode == sf::Keyboard::Scancode::Escape)
-                    game_window.close();
-            }
-        }
-
-        // handle collisions
-        handle_interaction(the_ball, the_paddle);
-        
-        for (brick& brick : bricks) {
-            handle_interaction(the_ball, brick);
-        }
-        bricks.erase(std::remove_if(std::begin(bricks), std::end(bricks), 
-            [](const brick& b) { return b.is_destroyed();}), 
-            std::end(bricks));
-
-        // update the images
-        background_image.update();
-        the_ball.update();
-        the_paddle.update();
-        for (brick& el : bricks) {
-            el.update();
-        }
-
-        // calculate the next frame to show
-        background_image.draw(game_window);
-        the_ball.draw(game_window);
-        the_paddle.draw(game_window);
-        for (brick& el : bricks) {
-            el.draw(game_window);
-        }
-
-        /*
-        // random walking creature
-        the_creature.update();
-        the_creature.draw(game_window);
-        */
-
-
-        // display the next frame
-        game_window.display();
-    }
-
-
     return 0;
 }
