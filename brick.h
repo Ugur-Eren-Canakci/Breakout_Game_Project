@@ -7,8 +7,11 @@ class brick : public entity {
 private:
 	int life = 1;
 public:
-	// constructor
+	// default constructor
 	brick(); 
+	
+	// two args constructor
+	brick(float x, float y);
 
 	// placement of the sprite
 	void place_brick(float x, float y);

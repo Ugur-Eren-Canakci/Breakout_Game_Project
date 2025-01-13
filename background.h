@@ -19,7 +19,6 @@ public:
 	void update() override;
 	void draw(sf::RenderWindow& window) override;
 
-	~background() override;
 };
 
 #endif // BACKGROUND_H

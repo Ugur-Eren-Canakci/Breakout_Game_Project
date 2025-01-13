@@ -12,8 +12,6 @@ background::background(float x, float y) : entity() {
 	sprite.setPosition({ x,y });
 }
 
-background::~background() {}
-
 void background::update() {} 
 
 void background::draw(sf::RenderWindow& window) {

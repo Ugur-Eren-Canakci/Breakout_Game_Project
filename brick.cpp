@@ -8,7 +8,12 @@ brick::brick() : entity() {
 	sprite.setTexture(texture);
 }
 
+
 void brick::place_brick(float x, float y) {
+	sprite.setPosition({ x,y });
+}
+
+brick::brick(float x, float y) : brick() {
 	sprite.setPosition({ x,y });
 }
 
