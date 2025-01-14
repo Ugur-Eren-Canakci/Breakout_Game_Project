@@ -21,6 +21,8 @@ using namespace std::literals;
 using entity_vector = std::vector<std::unique_ptr<entity>>;
 using entity_alias_vector = std::vector<entity*>;
 
+static const std::filesystem::path font_path{ "C:\\Windows\\fonts\\Verdana.ttf" };
+
 class entity_manager {
 private:
     
@@ -88,7 +90,7 @@ public:
 
 class game {
 private:
-    enum class game_state { paused, running};
+    enum class game_state { paused, running, game_over, player_wins };
 
     game_state state{game_state::running};
 	
@@ -101,6 +103,10 @@ private:
     // will manage every object of type entity
     entity_manager manager; 
     
+    // Text and Font classes to communicate with the player
+    sf::Font verdana;
+    sf::Text text_state, text_lives; // require init argument
+
 public:
 
     game();

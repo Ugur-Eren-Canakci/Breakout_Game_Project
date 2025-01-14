@@ -46,9 +46,7 @@ void ball::update() {
 	}
 
 	if (y() > constants::window_height) {
-		// currently the ball reflects from the bottom of the window
-		// will end the turn in the future
-		velocity.y = -velocity.y;
+		destroy();
 	}
 	
 }

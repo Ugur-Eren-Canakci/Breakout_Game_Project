@@ -18,6 +18,7 @@ struct constants {
   static constexpr int brick_columns{ 8 };
   static constexpr float brick_offset{ (float)(window_width - brick_columns*brick_width) / 2.0 };
   static constexpr int brick_strength{ 3 };
+  static constexpr int player_lives{ 3 };
 };
 
 #endif // CONSTANTS_H

@@ -44,8 +44,10 @@ void entity_manager::draw(sf::RenderWindow& window) {
         e->draw(window);
 }
 
-game::game() {
+game::game() : {
     game_window.setFramerateLimit(60);
+
+    verdana.openFromFile();
 }
 
 // main game loop
